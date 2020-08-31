@@ -1,0 +1,167 @@
+.tbl-area {
+    display:inline-block;
+}
+
+table {
+    border-collapse: collapse;
+}
+    table thead th {
+        border-bottom: 1px solid black;
+        padding:3px;
+    }
+    table thead th.left {
+        text-align: left;
+    }
+    table tbody td {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    table tbody tr:first-of-type td {
+        padding-top: 10px;
+    }
+    table tbody td.date,
+    table tbody td.number {
+        text-align: right;
+        padding-left: 1em;
+    }
+    table th.extra-long,
+    table td.extra-long {
+        padding-left: 1em;
+    }
+    table tbody tr:nth-of-type(even) {
+        background-color: #E3E3E3;
+    }
+    table tbody tr:last-of-type td {
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+    }
+
+h2 {
+    text-align: center;
+}
+h3 {
+    margin-bottom:0.2em;
+}
+
+#screenCurtain {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    background: #aaaaaa;
+    opacity: 0.6;
+
+    text-align: center;
+}
+
+#dlg-filter {
+    display: inline-block;
+    position: fixed;
+    top: 5em;
+    left: 7em;
+    border: 1px solid red;
+    background: white;
+    padding: 1em;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+    #dlg-filter h1 {
+        font-size: 120%;
+        text-align: left;
+        margin-top: 0em;
+    }
+    #dlg-filter label {
+        margin-right: 0.5em;
+    }
+        #dlg-filter label:nth-of-type(2n) {
+            margin-left: 2em;
+        }
+    #dlg-filter #err {
+        margin-top: 0.5em;
+        color:red;
+    }
+    #dlg-filter .btnHolder {
+        text-align: right;
+        margin-top: 1em;
+        position: relative;
+    }
+        #dlg-filter .btnHolder a,
+        #dlg-filter .btnHolder [type=submit] {
+            border: 1px solid grey;
+            border-radius: 3px;
+            padding: 0.3em 1em 0.3em 1em;
+            margin-left: 0.5em;
+            text-decoration: none;
+            cursor: default;
+            color: black;
+            font: 400 13.3333px Arial;
+        }
+            #dlg-filter .btnHolder a:hover,
+            #dlg-filter .btnHolder [type=submit]:hover {
+                background: lightgrey;
+            }
+        #dlg-filter .btnHolder .rightAlign {
+            position: absolute;
+            left: 0;
+        }
+
+#dlg-details {
+    display: inline-block;
+    position: fixed;
+    top: 5em;
+    left: 7em;
+    border: 1px solid green;
+    background: white;
+    padding: 1em;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+    #dlg-details h1 {
+        font-size: 120%;
+        text-align: left;
+        margin-top: 0em;
+    }
+    #dlg-details .btnHolder {
+        text-align: right;
+        margin-top: 1em;
+    }
+        #dlg-details .btnHolder a {
+            border: 1px solid grey;
+            border-radius: 3px;
+            padding: 0.3em 1em 0.3em 1em;
+            margin-left: 0.5em;
+            text-decoration: none;
+            cursor: default;
+            color: black;
+            font: 400 13.3333px Arial;
+        }
+            #dlg-details .btnHolder a:hover {
+                background: lightgrey;
+            }
+
+
+#errpgbd {
+    text-align: center;
+    margin-top: 10%;
+}
+    #errpgbd h1 {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-family: Verdana;
+    }
+    #errpgbd a {
+        display: inline-block;
+        padding: 10px;
+        background: #1C186E;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+    }
+        #errpgbd a:hover {
+            background: #3A3A95;
+            text-decoration: underline;
+        }

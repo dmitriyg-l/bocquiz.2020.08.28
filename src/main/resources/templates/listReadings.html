@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Climate Summary by Dmitriy G.</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" th:href="@{~/css/style.css}" />
+  <script type="text/javascript" th:src="@{~/scripts/scripts.js}"></script>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <section class="tbl-area">
+    <h2>Climate Summary</h2>
+    <p>Filter: <a href="javascript:showFilter()" th:text="${filterSummary}"></a></p>
+    <table>
+      <thead>
+        <tr>
+          <th class="left">Station Name</th>
+          <th>Date</th>
+          <th>Mean Temp</th>
+        </tr>
+      </thead>
+      <tr th:if="${readings != null}" th:each="sr : ${readings}">
+        <td th:text="${sr.StationName}"></td>
+        <td class="date" th:text="${#dates.format(sr.Date,'MM-dd-yyyy')}"></td>
+        <td class="number"><a th:href="${'javascript:showDetails(''' + sr.StationName + ''')'}" th:text="${sr.MeanTemp!=null} ? ${sr.MeanTemp} : 'n/a'"></a></td>
+      </tr>
+    </table>
+  </section>
+  <div id="screenCurtain" style="display:none"></div>
+  <form id="dlg-filter" name="dlg-filter" style="display:none" onsubmit="return validateFilterDates()">
+    <h1>Enter new filter</h1>
+    <div>
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate" th:value="${startDate}">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" name="endDate" th:value="${endDate}">
+    </div>
+    <div id="err" style="display:none"></div>
+    <div class="btnHolder">
+      <a class="rightAlign" href=".">Clear</a>
+      <input type="submit" value="Apply" />
+      <a href="javascript:cancelDialog('dlg-filter')">Cancel</a>
+    </div>
+  </form>
+  <div id="dlg-details" style="display:none">
+    <h1 id="detail-station"></h1>
+    <table>
+      <thead>
+        <tr>
+          <th class="left">Provice</th>
+          <th>Date</th>
+          <th>Mean Temp</th>
+          <th class="extra-long">Highest Month Temp</th>
+          <th class="extra-long">Lowest Month Temp</th>
+        </tr>
+      </thead>
+      <tbody id="detail-readings"></tbody>
+    </table>
+    <div class="btnHolder">
+      <a href="javascript:cancelDialog('dlg-details')">Close</a>
+    </div>
+  </div>
+  <th:block th:if="${errorOccured}" th:inline="javascript">
+  <script type="text/javascript">
+    showFilter();
+    showFilterErrorMessage(/*[[${errorMessage}]]*/)
+  </script>
+  </th:block>
+</body>
+</html>
