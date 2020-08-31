@@ -14,7 +14,7 @@ To compile and run web server execute “*Run Server for BoC Quiz.bat*” batch 
 
 **Notes on web page**:
    - In order to change the filter for the date range of readings click the underscored text next to the Filter label;
-   - Two addition pages were used to test error page:
+   - Two additional pages are used to test various error scenarious:
        - http://localhost:8080/pagewitherror
        - http://localhost:8080/page
            
